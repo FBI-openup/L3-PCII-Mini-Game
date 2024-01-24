@@ -1,6 +1,5 @@
 package main;
 
-import control.ReactionClic;
 import control.Redessine;
 import model.Descendre;
 import model.Parcours;
