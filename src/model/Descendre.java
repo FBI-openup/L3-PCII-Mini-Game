@@ -12,12 +12,12 @@ public class Descendre extends Thread {
         while (true) {
 
             if (position.getHauteur() > 0) {
-                position.move(-2);
-                // Simuler une descente en vitesse constante de -2
+                position.move(-3);
+                // Simuler une descente en vitesse constante de -3
             }
             try {
-                Thread.sleep(200);
-                // Met en pause le thread pendant 100 millisecondes
+                Thread.sleep(50);
+                // Met en pause le thread pendant 50 millisecondes
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
