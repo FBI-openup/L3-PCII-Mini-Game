@@ -1,3 +1,11 @@
+package main;
+
+import control.ReactionClic;
+import control.Redessine;
+import model.Descendre;
+import model.Position;
+import view.Affichage;
+
 import javax.swing.*;
 
 /**
@@ -14,9 +22,9 @@ public class Main {
                 Position position = new Position();
                 JFrame maFenetre = new JFrame("Exercice 1");
 
-                Affichage monAffichage = new Affichage(position);// Crée un objet Affichage avec l'objet Position
-                ReactionClic reaction = new ReactionClic(position);// Crée un objet ReactionClic avec l'objet Position
-                Redessine redessineThread = new Redessine(monAffichage);// Crée un objet Redessine avec l'objet Affichage
+                Affichage monAffichage = new Affichage(position);// Crée un objet view. Affichage avec l'objet model. Position
+                ReactionClic reaction = new ReactionClic(position);// Crée un objet control. ReactionClic avec l'objet model. Position
+                Redessine redessineThread = new Redessine(monAffichage);// Crée un objet control.Redessine avec l'objet view. Affichage
                 redessineThread.start();
 
 
@@ -26,7 +34,7 @@ public class Main {
                 maFenetre.setLocationRelativeTo(null);
                 maFenetre.setVisible(true);// Rend la fenêtre visible
 
-                Descendre descendreThread = new Descendre(position);// Crée un objet Descendre avec l'objet Position
+                Descendre descendreThread = new Descendre(position);// Crée un objet model. Descendre avec l'objet model. Position
                 descendreThread.start();
             }
         });
