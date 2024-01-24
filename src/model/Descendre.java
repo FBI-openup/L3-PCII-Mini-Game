@@ -1,7 +1,7 @@
 package model;
 
 public class Descendre extends Thread {
-    private Position position;
+    private final Position position;
 
     public Descendre(Position position) {
         this.position = position;
@@ -12,8 +12,8 @@ public class Descendre extends Thread {
         while (true) {
 
             if (position.getHauteur() > 0) {
-                position.move(-3);
-                // Simuler une descente en vitesse constante de -3
+                position.move(-2);
+                // Simuler une descente en vitesse constante de -2
             }
             try {
                 Thread.sleep(50);

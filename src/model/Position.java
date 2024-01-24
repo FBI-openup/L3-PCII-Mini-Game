@@ -9,6 +9,9 @@ public class Position {
     }
 
     public void move(int amount) {
+        if(hauteur + amount > 180) {
+            hauteur = 180;
+        }
         hauteur += amount;
     }
 

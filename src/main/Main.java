@@ -3,6 +3,7 @@ package main;
 import control.ReactionClic;
 import control.Redessine;
 import model.Descendre;
+import model.Parcours;
 import model.Position;
 import view.Affichage;
 
@@ -20,10 +21,10 @@ public class Main {
             @Override
             public void run() {
                 Position position = new Position();
+                Parcours parcours = new Parcours();
                 JFrame maFenetre = new JFrame("Exercice 1");
 
-                Affichage monAffichage = new Affichage(position);// Crée un objet view. Affichage avec l'objet model. Position
-                ReactionClic reaction = new ReactionClic(position);// Crée un objet control. ReactionClic avec l'objet model. Position
+                Affichage monAffichage = new Affichage(position,parcours);// Crée un objet view. Affichage avec l'objet model. Position
                 Redessine redessineThread = new Redessine(monAffichage);// Crée un objet control.Redessine avec l'objet view. Affichage
                 redessineThread.start();
 
