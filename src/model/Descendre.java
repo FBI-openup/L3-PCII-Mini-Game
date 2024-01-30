@@ -1,5 +1,7 @@
 package model;
 
+import static java.lang.Thread.sleep;
+
 public class Descendre extends Thread {
     private final Position position;
 
@@ -11,12 +13,12 @@ public class Descendre extends Thread {
     public void run() {
         while (true) {
 
-            if (position.getHauteur() > 0) {
+            if (position.getHauteur() > -160) {
                 position.move(-2);
                 // Simuler une descente en vitesse constante de -2
             }
             try {
-                Thread.sleep(50);
+                sleep(50);
                 // Met en pause le thread pendant 50 millisecondes
             } catch (InterruptedException e) {
                 e.printStackTrace();

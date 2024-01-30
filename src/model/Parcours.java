@@ -13,12 +13,12 @@ public class Parcours {
     // Ces points sont initialisé par random et puis stockés dans la liste.
     public void initializePoints() {
         int currentX = 0;
-        int startY = 180;
+        int startY = 80;
 
         while (currentX <= 400) {
-            int xIncrement = X_MIN + generateurAleatoire.nextInt(X_MAX - X_MIN + 2);
+            int xIncrement = X_MIN + generateurAleatoire.nextInt(X_MAX - X_MIN + 4);
             currentX += xIncrement;
-            int yIncrement = startY+generateurAleatoire.nextInt(80);
+            int yIncrement = startY+generateurAleatoire.nextInt(160);
             Point point = new Point(currentX, yIncrement);
             points.add(point);
         }
