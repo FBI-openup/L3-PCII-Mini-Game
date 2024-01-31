@@ -5,7 +5,6 @@ import view.Affichage;
 public class Redessine extends Thread {
     private final Affichage monAffichage;
     private static final int DELAY = 50;
-
     public Redessine(Affichage monAffichage) {
         this.monAffichage = monAffichage;
     }

@@ -19,7 +19,7 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             Position position = new Position();
             Parcours parcours = new Parcours(position);
-            JFrame maFenetre = new JFrame("Exercice 1");
+            JFrame maFenetre = new JFrame("MINI Game: Dont touch ");// Crée une fenêtre avec le titre "MINI Game : Dont touch "
 
             Affichage monAffichage = new Affichage(position,parcours);// Crée un objet view. Affichage avec l'objet model. Position
             Redessine redessineThread = new Redessine(monAffichage);// Crée un objet control.Redessine avec l'objet view. Affichage
@@ -33,7 +33,8 @@ public class Main {
             maFenetre.setLocationRelativeTo(null);
             maFenetre.setVisible(true);// Rend la fenêtre visible
 
-            Descendre descendreThread = new Descendre(position);// Crée un objet model. Descendre avec l'objet model. Position
+            Descendre descendreThread = new Descendre(position);// Crée un objet model. Descendre
+                                                                // Avec l'objet model. Position
             descendreThread.start();
 
 

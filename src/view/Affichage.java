@@ -12,7 +12,7 @@ public class Affichage extends JPanel {
 
     public static final int LARGEUR_ELLIPSE = 30;
     public static final int HAUTEUR_ELLIPSE = 80;
-    public static final int X_CENTRE = 80;
+    public static final int X_CENTRE = 80; //point de départ (80,100)
     public static final int Y_CENTRE = 100;
     private final Position position;
 

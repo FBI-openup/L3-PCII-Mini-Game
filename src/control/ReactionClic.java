@@ -11,14 +11,12 @@ public class ReactionClic implements MouseListener {
 
     public ReactionClic(Position position) {
         this.position = position;
-
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Descendre.vitesse = 0;
         position.jump();// Augmente la hauteur de la position lorsque la souris est cliqué
-        System.out.println("clicked :)");// Affiche "Clic de souris " dans la console
+        System.out.println("clicked :)");// Affiche mes clics dans la console
     }
 
     @Override

@@ -2,24 +2,24 @@ package model;
 
 public class Position {
     private int hauteur = 0;
-    public static final int HAUTEUR = 12;
+    private int vitesse = 0;
+    public static final int ACCEL = 6; // accélération de sauter
     private int avancement = 0;
 
-    public int getHauteur() {
-        return hauteur;
-    }
+    public int getHauteur() {return hauteur;}
 
-    public void move(int amount) {
+    public void move() {
         // border top
-        if(hauteur + amount >120) {
-            hauteur = 120;
+        hauteur += vitesse; // appliquer la vitesse : position = dérivée de la vitesse
+        vitesse -= 1; // appliquer l'accélération G : vitesse = dérivée de l'accélération
+        if(hauteur < -160) {
+            hauteur = -160;
         }
-        hauteur += amount;
     }
 
     public void jump() {
-        hauteur += HAUTEUR;
         System.out.println("Hauteur après sauter: " + hauteur);
+        vitesse = ACCEL; // sauter = appliquer une nouvelle accélération à vitesse initiale
     }
 
     public int getAvancement() {
