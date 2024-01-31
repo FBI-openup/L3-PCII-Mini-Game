@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class ReactionClic implements MouseListener {
-    private Position position;
+    private final Position position;
 
     public ReactionClic(Position position) {
         this.position = position;

@@ -6,6 +6,7 @@ import model.Position;
 
 import javax.swing.JPanel;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Affichage extends JPanel {
 
@@ -26,7 +27,10 @@ public class Affichage extends JPanel {
         this.addMouseListener(new ReactionClic(position));
         // Associe un écouteur de clics de souris à cet élément d'interface graphique.
     }
-
+    public void updateAndRepaint() {
+        parcours.updatePoints();
+        this.repaint();
+    }
 
     //Utilisez paint pour afficher des points de suspension sur l'interface
     @Override
@@ -39,10 +43,11 @@ public class Affichage extends JPanel {
         g.drawOval(x, y, LARGEUR_ELLIPSE, HAUTEUR_ELLIPSE);
 
         // paint ligne brisée
-        if (parcours != null && parcours.getPoints() != null && parcours.getPoints().size() > 1) {
-            Point prevPoint = parcours.getPoints().get(0);
-            for (int i = 1; i < parcours.getPoints().size(); i++) {
-                Point currentPoint = parcours.getPoints().get(i);
+        ArrayList<Point> adjustedPoints = parcours.getAdjustedPoints();
+        if (adjustedPoints.size() > 1) {
+            Point prevPoint = adjustedPoints.get(0);
+            for (int i = 1; i < adjustedPoints.size(); i++) {
+                Point currentPoint = adjustedPoints.get(i);
                 g.setColor(Color.RED);
                 g.drawLine(prevPoint.x, prevPoint.y, currentPoint.x, currentPoint.y);
                 prevPoint = currentPoint;

@@ -3,7 +3,7 @@ package control;
 import view.Affichage;
 
 public class Redessine extends Thread {
-    private Affichage monAffichage;
+    private final Affichage monAffichage;
     private static final int DELAY = 50;
 
     public Redessine(Affichage monAffichage) {
@@ -14,7 +14,7 @@ public class Redessine extends Thread {
     public void run() {
         while (true) {
             // control.Redessine l'élément d'interface graphique monAffichage.
-            monAffichage.repaint();
+            monAffichage.updateAndRepaint(); // Mise à jour de l'affichage
             try {
                 Thread.sleep(DELAY);
 
@@ -23,5 +23,6 @@ public class Redessine extends Thread {
             }
         }
     }
+
 }
 
