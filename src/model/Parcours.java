@@ -7,8 +7,8 @@ import java.util.Random;
 public class Parcours {
     private final Random generateurAleatoire = new Random();
     //l’écart minimum et maximum en X entre deux points successifs (sauf pour les deux premiers points)
-    private static final int X_MIN = 10;
-    private static final int X_MAX = 30;
+    private static final int X_MIN = 30; //distance horizontal minimum entre deux points
+    private static final int X_MAX = 40;//distance horizontal maximum entre deux points
     private final ArrayList<Point> points;
     //Tracez une ligne en utilisant les points que j'ai spécifiés.
     // Ces points sont initialisé par random et puis stockés dans la liste.
@@ -20,13 +20,13 @@ public class Parcours {
         initializePoints();
     }
     public void initializePoints() {
-        int currentX = 0;
-        int startY = 80;
+        int currentX = 40;
+        int startY = 90;
 
         while (currentX <= 400) {
             int xIncrement = X_MIN + generateurAleatoire.nextInt(X_MAX - X_MIN + 4);
             currentX += xIncrement;
-            int yIncrement = startY+generateurAleatoire.nextInt(100);
+            int yIncrement = startY+generateurAleatoire.nextInt(60);
             Point point = new Point(currentX, yIncrement);
             points.add(point);
         }
@@ -41,7 +41,7 @@ public class Parcours {
         return adjustedPoints;
     }
     public void updatePoints() {
-        //suprimer le dernier point qui est hors de la fenetre
+        //supprimer le dernier point qui est hors de la fenetre
         if (this.points.size() > 1 && this.points.get(1).x - this.position.getAvancement() < 0) {
             this.points.remove(0);
         }
@@ -50,7 +50,7 @@ public class Parcours {
         Point lastPoint = this.points.get(this.points.size() - 1);
         if (lastPoint.x - this.position.getAvancement() < 400) {
             int newX = lastPoint.x + X_MIN + generateurAleatoire.nextInt(X_MAX - X_MIN + 1);
-            int newY = 80 + generateurAleatoire.nextInt(160); // peut adjuster
+            int newY = 80 + generateurAleatoire.nextInt(80); // peut adjuster
             this.points.add(new Point(newX, newY));
         }
     }

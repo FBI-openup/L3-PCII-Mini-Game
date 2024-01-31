@@ -8,15 +8,12 @@ public class Descendre extends Thread {
     }
     // Descend l'élément d'interface graphique monAffichage toutes les 200 millisecondes.
 
-    // simulate la gravité
 
-    //TODO need reset v,a=0 now need to <0
-
+    public static int vitesse = 0;
     @Override
     public void run() {
-        int vitesse = -2; // vitesse initiale
-        int acceleration = 0; // vitesse augmente de 1 à chaque fois
-
+        // simulate la gravité
+        int acceleration = -1; // vitesse augmente de 1 à chaque fois
         while (true) {
 
             try {

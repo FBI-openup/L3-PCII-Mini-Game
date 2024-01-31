@@ -2,7 +2,7 @@ package model;
 
 public class Position {
     private int hauteur = 0;
-    public static final int HAUTEUR = 15;
+    public static final int HAUTEUR = 12;
     private int avancement = 0;
 
     public int getHauteur() {

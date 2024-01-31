@@ -1,5 +1,6 @@
 package control;
 
+import model.Descendre;
 import model.Position;
 
 import java.awt.event.MouseEvent;
@@ -15,6 +16,7 @@ public class ReactionClic implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        Descendre.vitesse = 0;
         position.jump();// Augmente la hauteur de la position lorsque la souris est cliqué
         System.out.println("clicked :)");// Affiche "Clic de souris " dans la console
     }
