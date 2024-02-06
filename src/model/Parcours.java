@@ -19,6 +19,7 @@ public class Parcours {
         points = new ArrayList<>();
         initializePoints();
     }
+
     public void initializePoints() {
         int currentX = 40;
         int startY = 90;
@@ -26,7 +27,7 @@ public class Parcours {
         while (currentX <= 400) {
             int xIncrement = X_MIN + generateurAleatoire.nextInt(X_MAX - X_MIN + 4);
             currentX += xIncrement;
-            int yIncrement = startY+generateurAleatoire.nextInt(60);
+            int yIncrement = startY + generateurAleatoire.nextInt(60);
             Point point = new Point(currentX, yIncrement);
             points.add(point);
         }

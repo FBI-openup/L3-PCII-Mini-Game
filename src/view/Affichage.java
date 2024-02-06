@@ -16,7 +16,7 @@ public class Affichage extends JPanel {
     private final Position position;
     private final Parcours parcours;
 
-    public Affichage(Position position,Parcours parcours) {
+    public Affichage(Position position, Parcours parcours) {
         this.position = position;
         this.parcours = parcours;//Peut désormais accepter une instance de parcours
         // Associe l'objet model. Position passée en paramètre à l'attribut 'position' de cette instance de view. Affichage.
@@ -25,10 +25,7 @@ public class Affichage extends JPanel {
         this.addMouseListener(new ReactionClic(position));
         // Associe un écouteur de clics de souris à cet élément d'interface graphique.
     }
-//    public void updateAndRepaint() {
-//        parcours.updatePoints();
-//        this.repaint();
-//    }
+
     //Utilisez paint pour afficher des points de suspension sur l'interface
     @Override
     protected void paintComponent(Graphics g) {
