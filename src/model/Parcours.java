@@ -38,9 +38,13 @@ public class Parcours {
             int adjustedX = point.x - this.position.getAvancement();
             adjustedPoints.add(new Point(adjustedX, point.y));
         }
+        updatePoints();
         return adjustedPoints;
     }
+
+    //Ajouter et supprimer des points pour que la ligne soit toujours infinie
     public void updatePoints() {
+
         //supprimer le dernier point qui est hors de la fenetre
         if (this.points.size() > 1 && this.points.get(1).x - this.position.getAvancement() < 0) {
             this.points.remove(0);
@@ -54,13 +58,15 @@ public class Parcours {
             this.points.add(new Point(newX, newY));
         }
     }
-    public static void main(String[] args) {
-        Position position = new Position();
-        Parcours parcours = new Parcours(position);
-        ArrayList<Point> adjustedPoints = parcours.getAdjustedPoints();
 
-        for (Point point : adjustedPoints) {
-            System.out.println("X: " + point.getX() + ", Y: " + point.getY());
-        }
-    }
+         /* pour tester la ligne, par afficher les points dans la console
+        public static void main(String[] args) {
+            Position position = new Position();
+            Parcours parcours = new Parcours(position);
+            ArrayList<Point> adjustedPoints = parcours.getAdjustedPoints();
+
+            for (Point point : adjustedPoints) {
+                System.out.println("X: " + point.getX() + ", Y: " + point.getY());
+            }
+        }*/
 }

@@ -6,13 +6,15 @@ public class Position {
     public static final int ACCEL = 6; // accélération de sauter
     private int avancement = 0;
 
-    public int getHauteur() {return hauteur;}
+    public int getHauteur() {
+        return hauteur;
+    }
 
     public void move() {
         // border top
         hauteur += vitesse; // appliquer la vitesse : position = dérivée de la vitesse
         vitesse -= 1; // appliquer l'accélération G : vitesse = dérivée de l'accélération
-        if(hauteur < -160) {
+        if (hauteur < -160) {
             hauteur = -160;
         }
     }
@@ -29,4 +31,5 @@ public class Position {
     public void incrementAvancement(int value) {
         this.avancement += value;
     }
+
 }

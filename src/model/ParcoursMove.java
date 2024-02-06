@@ -1,23 +1,20 @@
 package model;
 
-public class Descendre extends Thread {
+public class ParcoursMove extends Thread{
     private final Position position;
-
-    public Descendre(Position position) {
+    public ParcoursMove(Position position) {
         this.position = position;
     }
-    // Descend l'élément d'interface graphique monAffichage toutes les 200 millisecondes.
-
     @Override
+    // Move to the left every 50 milliseconds
     public void run() {
         while (true) {
             try {
-                position.move();
-                sleep(50);
+               position.incrementAvancement(1);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-
 }
