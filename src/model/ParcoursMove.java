@@ -8,7 +8,7 @@ public class ParcoursMove extends Thread {
     }
 
     @Override
-    // Move to the left every 50 milliseconds
+    // chaque 50 milliseconds la position avance de
     public void run() {
         while (true) {
             try {

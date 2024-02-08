@@ -2,7 +2,7 @@ package model;
 
 public class Position {
     private int hauteur = 0;
-    private int vitesse = 0;
+    private int vitesse = 6;
     public static final int ACCEL = 6; // accélération de sauter
     private int avancement = 0;
 

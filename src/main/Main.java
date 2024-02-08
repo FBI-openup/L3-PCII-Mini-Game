@@ -1,10 +1,7 @@
 package main;
 
+import model.*;
 import view.Redessine;
-import model.Descendre;
-import model.ParcoursMove;
-import model.Parcours;
-import model.Position;
 import view.Affichage;
 
 import javax.swing.*;
@@ -24,14 +21,18 @@ public class Main {
 
             JFrame maFenetre = new JFrame("MINI Game: Dont touch ");// Crée une fenêtre avec le titre "MINI Game : Dont touch "
 
-            Affichage monAffichage = new Affichage(position, parcours);// Crée un objet view. Affichage Avec l'objet model. Position
-            Redessine redessineThread = new Redessine(monAffichage, parcoursMove);// Crée un objet view.Redessine Avec l'objet view. Affichage
-            Descendre descendreThread = new Descendre(position);// Crée un objet model. Descendre Avec l'objet model. Position
+            Score score = new Score();
+            Affichage monAffichage = new Affichage(position, parcours, score);
+            Redessine redessineThread = new Redessine(monAffichage, parcoursMove);
+            Descendre descendreThread = new Descendre(position);
+            Collision collision = new Collision(monAffichage, position, parcours);
 
             //threads
+            score.start();
             redessineThread.start();
             parcoursMove.start();
             descendreThread.start();
+            collision.start();
 
 
             maFenetre.add(monAffichage);
@@ -39,8 +40,6 @@ public class Main {
             maFenetre.pack();
             maFenetre.setLocationRelativeTo(null);
             maFenetre.setVisible(true);// Rend la fenêtre visible
-
-
         });
     }
 }
